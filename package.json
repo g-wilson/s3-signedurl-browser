@@ -1,0 +1,32 @@
+{
+  "name": "s3-signedurl-browser",
+  "version": "1.0.0",
+  "description": "Interactive way to get signed S3 URLs for every object in a directory",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "George Wilson <george@g-wilson.co.uk>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.108.0",
+    "bluebird": "^3.5.0",
+    "dotenv": "^4.0.0",
+    "inquirer": "^3.2.3",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g-wilson/s3-signedurl-browser.git"
+  },
+  "keywords": [
+    "cli",
+    "s3",
+    "aws"
+  ],
+  "bugs": {
+    "url": "https://github.com/g-wilson/s3-signedurl-browser/issues"
+  },
+  "homepage": "https://github.com/g-wilson/s3-signedurl-browser#readme"
+}
