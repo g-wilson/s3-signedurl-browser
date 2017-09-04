@@ -16,5 +16,9 @@ Node.js v6.9.0+
 
 ### Usage
 
-`$ s3-signedurl-browser` and follow the steps...
+Environment variables `S3_ACCESS_TOKEN` and `S3_SECRET_TOKEN` need to be set to an IAM user with correct permissions for:
 
+- List all buckets
+- List objects (within the chosen bucket)
+
+`$ s3-signedurl-browser` and follow the steps...

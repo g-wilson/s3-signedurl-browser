@@ -13,6 +13,9 @@ const config = {
   secretAccessKey: process.env.S3_SECRET_TOKEN,
 }
 
+if (!config.accessKeyId) throw new Error('You must provide S3_ACCESS_TOKEN environment variable')
+if (!config.secretAccessKey) throw new Error('You must provide S3_SECRET_TOKEN environment variable')
+
 console.log(chalk.green('Connected to S3 as %s'), config.accessKeyId)
 
 const s3 = Bluebird.promisifyAll(new AWS.S3(config))
