@@ -1,29 +1,17 @@
 #!/usr/bin/env node
 'use strict'
 
-require('dotenv').config()
 const _ = require('lodash')
 const AWS = require('aws-sdk')
 const inquirer = require('inquirer')
-const Bluebird = require('bluebird')
 const chalk = require('chalk')
 
-const config = {
-  accessKeyId: process.env.S3_ACCESS_TOKEN,
-  secretAccessKey: process.env.S3_SECRET_TOKEN,
-}
-
-if (!config.accessKeyId) throw new Error('You must provide S3_ACCESS_TOKEN environment variable')
-if (!config.secretAccessKey) throw new Error('You must provide S3_SECRET_TOKEN environment variable')
-
-console.log(chalk.green('Connected to S3 as %s'), config.accessKeyId)
-
-const s3 = Bluebird.promisifyAll(new AWS.S3(config))
+const s3 = new AWS.S3()
 
 let Bucket, objects
 
 function go() {
-  return s3.listBucketsAsync()
+  return s3.listBuckets().promise()
     .then(data => _.map(data.Buckets, 'Name'))
     .then(buckets => inquirer.prompt({
       type: 'list',
@@ -33,9 +21,9 @@ function go() {
     }))
     .then(({ bucket }) => {
       Bucket = bucket
-      return s3.headBucketAsync({ Bucket })
+      return s3.headBucket({ Bucket }).promise()
     })
-    .then(() => s3.listObjectsAsync({ Bucket, Delimiter: '/' }))
+    .then(() => s3.listObjects({ Bucket, Delimiter: '/' }).promise())
     .then(walkDirectories)
     .then(o => {
       objects = o

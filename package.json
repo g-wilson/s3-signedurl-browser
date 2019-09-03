@@ -1,6 +1,6 @@
 {
   "name": "s3-signedurl-browser",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Interactive way to get signed S3 URLs for every object in a directory",
   "main": "index.js",
   "bin": "index.js",
@@ -12,7 +12,6 @@
   "dependencies": {
     "aws-sdk": "^2.108.0",
     "bluebird": "^3.5.0",
-    "dotenv": "^4.0.0",
     "inquirer": "^3.2.3",
     "lodash": "^4.17.4"
   },
