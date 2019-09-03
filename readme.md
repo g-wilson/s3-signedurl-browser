@@ -16,9 +16,6 @@ Node.js v6.9.0+
 
 ### Usage
 
-Environment variables `S3_ACCESS_TOKEN` and `S3_SECRET_TOKEN` need to be set to an IAM user with correct permissions for:
-
-- List all buckets
-- List objects (within the chosen bucket)
+The AWS SDK must be able to authenticate, so have a valid AWS credentials file, or use environment variables.
 
 `$ s3-signedurl-browser` and follow the steps...
